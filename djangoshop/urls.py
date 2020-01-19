@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('shop.urls')) #shop/urls.py 연결하기
+    path('accounts/', include('allauth.urls')),
+    path('', include('shop.urls')), #shop/urls.py 연결하기
 ]
