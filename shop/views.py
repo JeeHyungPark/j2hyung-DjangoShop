@@ -9,7 +9,7 @@ def product_in_category(request, category_slug=None): #카테고리 페이지
 
     if category_slug:
         current_category = get_object_or_404(Category, slug=category_slug)
-        products = Products.filter(category=current_category)
+        products = products.filter(category=current_category)
 
     return render(request, 'shop/list.html', {'current_category': current_category, 'categories': categories, 'products':products})
 

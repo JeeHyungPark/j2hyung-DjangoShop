@@ -28,15 +28,15 @@ class Product(models.Model): #제품 모델
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
 
-    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True) #image에 빈칸 허용하는거 아닌가? 왜 사진 안넣으면 메인페이지 에러 나지 ㅠ
     description = models.TextField(blank=True)
-    mata_description = models.TextField(blank=True)
+    meta_description = models.TextField(blank=True)
 
     price = models.DecimalField(max_digits=10, decimal_places=2) 
-    stock = models.PositiveIntegerField() 
+    stock = models.PositiveIntegerField()
 
-    available_display = models.BooleanField('Display', default=True) #상품 노출 여부
-    available_order = models.BooleanField('Order', default=True) #상품 주문 가능 여부
+    available_display = models.BooleanField('Display', default=True)
+    available_order = models.BooleanField('Order', default=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
